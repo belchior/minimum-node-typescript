@@ -1,7 +1,7 @@
 {
   "name": "minimum-node-typescript",
   "version": "0.1.0",
-  "description": "minimum setup to run node + typescript project",
+  "description": "minimum setup to run node + typescript",
   "main": "index.js",
   "keywords": [],
   "author": "Belchior Oliveira",
@@ -10,9 +10,10 @@
     "node" : "12.x"
   },
   "scripts": {
-    "build": "tsc",
-    "lint": "tsc --noEmit && eslint 'src/**/*.{js,ts}'",
-    "start": "nodemon -r ts-node/register src/server.ts",
+    "build": "tsc --project tsconfig.prod.json",
+    "lint": "tsc --noEmit && eslint 'src/**/*.ts'",
+    "start": "node build/server.js",
+    "start:ts": "nodemon",
     "test": "jest --watch",
     "test:ci": "jest --coverage --ci"
   },
@@ -33,11 +34,28 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "build"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
   },
   "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "ts",
     "ignore": [
-      "**/*.spec.js"
-    ]
+      "src/**/*.spec.ts"
+    ],
+    "exec": "ts-node ./src/server.ts"
   }
 }
