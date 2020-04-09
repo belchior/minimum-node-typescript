@@ -11,20 +11,27 @@ module.exports = {
   ],
   'globals': {
     'Atomics': 'readonly',
-    'SharedArrayBuffer': 'readonly'
+    'SharedArrayBuffer': 'readonly',
   },
   'parser': '@typescript-eslint/parser',
   'parserOptions': {
     'ecmaVersion': 2018,
-    'sourceType': 'module'
+    'sourceType': 'module',
   },
   'plugins': [
-    '@typescript-eslint'
+    '@typescript-eslint',
+    'jest',
   ],
   'rules': {
-    'indent': [ 'error', 2 ],
+    'indent': ['error', 2, { SwitchCase: 1 }],
     'linebreak-style': [ 'error', 'unix' ],
     'quotes': [ 'error', 'single' ],
-    'semi': [ 'error', 'always' ]
+    'semi': [ 'error', 'always' ],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error', {
+      'vars': 'all',
+      'args': 'after-used',
+      'ignoreRestSiblings': false
+    }],
   }
 };
