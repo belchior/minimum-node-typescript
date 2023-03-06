@@ -2,7 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "sourceMap": false,
-    "removeComments": true
+    "removeComments": true,
+    "outDir": "build/src"
   },
-  "exclude": ["node_modules", "build", "src/**/*.spec.ts"]
+  "exclude": ["src/**/*.spec.ts"],
 }

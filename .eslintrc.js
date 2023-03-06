@@ -26,7 +26,7 @@ module.exports = {
     'indent': ['error', 2, { SwitchCase: 1 }],
     'linebreak-style': [ 'error', 'unix' ],
     'quotes': [ 'error', 'single' ],
-    'semi': [ 'error', 'always' ],
+    'semi': [ 'error', 'never' ],
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error', {
       'vars': 'all',

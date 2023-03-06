@@ -1,4 +1,13 @@
 # Minimum Node Typescript
-> minimum setup to run node + typescript project
 
-Ready to use: `node`, `typescript`, `eslint` and `jest`
+Minimum setup to run node + typescript on development and build for production
+
+Useful commands
+
+```sh
+npm run build:prod
+npm run lint
+npm run start:dev
+npm run test
+npm run test:ci
+```
