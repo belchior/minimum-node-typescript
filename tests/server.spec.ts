@@ -1,5 +1,5 @@
 import request from 'supertest'
-import { app } from './server'
+import { app } from '../src/server'
 
 describe('server', () => {
   it('should works', async () => {

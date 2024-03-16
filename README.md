@@ -6,6 +6,7 @@ Useful commands
 
 ```sh
 npm run build:prod
+npm run start # will start prod
 npm run lint
 npm run start:dev
 npm run test

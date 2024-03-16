@@ -5,5 +5,5 @@
     "removeComments": true,
     "outDir": "build/src"
   },
-  "exclude": ["src/**/*.spec.ts"],
+  "exclude": ["tests", "src/**/*.spec.ts"],
 }
