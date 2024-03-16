@@ -1,0 +1,44 @@
+# Development environment
+
+version: '3.0'
+
+networks:
+  mynetwork:
+    driver: bridge
+
+services:
+  database:
+    image: postgres:13
+    container_name: postgres.dev
+    env_file:
+      - ./.env
+    ports:
+      - ${PGPORT}:${PGPORT}
+    networks:
+      - mynetwork
+    restart: always
+
+
+  server:
+    image: node:20-alpine
+    working_dir: /usr/app
+    command: npm run start:dev
+    container_name: server.dev
+    depends_on:
+      - database
+    env_file:
+      - ./.env
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    networks:
+      - mynetwork
+    volumes:
+      - ./node_modules:/usr/app/node_modules
+      - ./src:/usr/app/src
+      - ./tests:/usr/app/tests
+      - ./.env:/usr/app/.env
+      - ./jest.config.json:/usr/app/jest.config.json
+      - ./package-lock.json:/usr/app/package-lock.json
+      - ./package.json:/usr/app/package.json
+      - ./tsconfig.json:/usr/app/tsconfig.json
+    restart: always
