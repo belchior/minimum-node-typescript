@@ -25,6 +25,7 @@ module.exports = {
   'rules': {
     'indent': ['error', 2, { SwitchCase: 1 }],
     'linebreak-style': [ 'error', 'unix' ],
+    'no-multiple-empty-lines': ['error', { 'max': 1 }],
     'quotes': [ 'error', 'single' ],
     'semi': [ 'error', 'never' ],
     'no-unused-vars': 'off',
@@ -34,4 +35,4 @@ module.exports = {
       'ignoreRestSiblings': false
     }],
   }
-};
+}

@@ -11,4 +11,6 @@ npm run lint
 npm run start:dev
 npm run test
 npm run test:ci
+
+docker-compose exec database psql -U postgres -d postgres
 ```
